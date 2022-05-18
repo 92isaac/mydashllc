@@ -1,9 +1,22 @@
 import React, { useState } from 'react'
+import {useNavigate } from "react-router-dom"
 
 const Form = () => {
     const [field, setField] =useState({email: '', password:"", confirmPassword:"", name: '', tel:"", checkbox: false,})
+    const [focus, setFocus] = useState(false)
+
+    
+	const navigate = useNavigate()
+    const handleSubmit=(e)=>{
+      e.preventDefault();
+    
+    alert('Registration succsessful; Press "OK" ')
+     navigate("/chart", {replace: true});
+    //  setUsersData(usersData);
+     }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
     <h1 className="create-account-label">Create an account</h1>
     <div>
         <label>Your email</label>
@@ -11,7 +24,7 @@ const Form = () => {
     </div>
     <div>
         <label>Your password</label>
-        <input type="password" className="input" placeholder="" value={field.password} onChange={(e)=>{setField({...field, password:e.bubbles})}}/>
+        <input type="password" className="input" placeholder="" value={field.password} onChange={(e)=>{setField({...field, password:e.target.value})}}/>
     </div>
     <div>
         <label>Confirm your password</label>
