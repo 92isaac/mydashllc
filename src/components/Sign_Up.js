@@ -1,7 +1,6 @@
 import React from 'react'
 import Form from './Form'
-import "./style.css"
-// import './landing.scss'
+import "../components/scss/SignUp.css"
 
 const Sign_Up = () => {
   return (

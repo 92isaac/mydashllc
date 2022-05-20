@@ -1,13 +1,18 @@
 import React, {useState, useRef, useEffect} from 'react'
 import * as d3 from 'd3'
+import Basic from './Basic';
+
+
+const randomArray = (length, max) => [...new Array(length)]
+    .map(() => Math.round(Math.random() * max));
 
 const Chart = () => {
-    const [data, setData] = useState([200, 250, 60, 150, 100, 175, 450]);
+    const [data, setData] = useState(randomArray(7,480));
     const svgRef = useRef();
 
 
     useEffect(() =>{
-        const w  = 600;
+        const w  = 700;
         const h = 500;
         const svg = d3.select(svgRef.current)
         .attr("width", w)
@@ -49,6 +54,9 @@ const Chart = () => {
         <svg ref={svgRef} onClick={()=>{setData([data + 20])}}>
 
         </svg>
+
+        {/* <Basic /> */}
+        {/* <button>Click to refresh graph</button> */}
     </div>
   )
 }
