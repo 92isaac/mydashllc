@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import {useNavigate } from "react-router-dom"
 import "../components/scss/Form.css"
+import { useAuth } from './utility/auth'
 
 const Form = () => {
     const [field, setField] =useState({email:'', password:"", confirmPassword:"", name:'', tel:"", checkbox: false,})
     const [focus, setFocus] = useState({email: false, password: false, confirmPassword: false, tel: false,})
 	const navigate = useNavigate()
+    const auth = useAuth()
 
 
     const handleSubmit=(e)=>{
       e.preventDefault();
-    
+    auth.login(field.email, field.password === field.confirmPassword, field.name)
       
     alert('Registration succsessful; Press "OK" ')
-     navigate("/chart", {replace: true});
+     navigate("/chart ", {replace: true});
      }
 
      const handleFocus =(e)=>{

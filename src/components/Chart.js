@@ -1,6 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react'
 import * as d3 from 'd3'
-import Basic from './Basic';
 
 
 const randomArray = (length, max) => [...new Array(length)]
@@ -54,9 +53,6 @@ const Chart = () => {
         <svg ref={svgRef} onClick={()=>{setData([data + 20])}}>
 
         </svg>
-
-        {/* <Basic /> */}
-        {/* <button>Click to refresh graph</button> */}
     </div>
   )
 }
